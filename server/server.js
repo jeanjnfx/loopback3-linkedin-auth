@@ -170,6 +170,9 @@ app.get('/auth/logout', function(req, res, next) {
 });
 
 app.start = function() {
+  if (process.env.PORT) {
+    app.set('port', process.env.PORT);
+  }
   // start the web server
   return app.listen(function() {
     app.emit('started');
